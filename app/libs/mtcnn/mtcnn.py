@@ -27,20 +27,17 @@ class MTCNN(object):
 
     def get_align_face(self, img):
         boxes, landmarks = self.detect_faces(img)
-        if len(boxes)>0:
+        if len(boxes) > 0:
             idx = np.argmax(boxes[:, -1])
             box = boxes[idx, :-1]
-            box= box.astype(int)
-            box= box+ [-1, -1, 1, 1]  # personal choice
+            box = box.astype(int)
+            box = box + [-1, -1, 1, 1]  # personal choice
             landmark = landmarks[idx]
-            facial5points = [[landmark[j],landmark[j+5]] for j in range(5)]
-            warped_face = warp_and_crop_face(np.array(img), facial5points, self.refer, crop_size=(112,112))
+            facial5points = [[landmark[j], landmark[j + 5]] for j in range(5)]
+            warped_face = warp_and_crop_face(np.array(img), facial5points, self.refer, crop_size=(112, 112))
             face = Image.fromarray(warped_face)
-        else:
-            return [], []
-
-        return box, face
-
+            return box, face
+        return None, None
 
     @staticmethod
     def show_bboxes(img, bounding_boxes, facial_landmarks=[]):
@@ -290,6 +287,7 @@ class MTCNN(object):
             img_boxes[i, :, :, :] = self._preprocess(img_box)
 
         return img_boxes
+
 
 if __name__ == "__main__":
     mtcnn = MTCNN()

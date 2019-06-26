@@ -1,12 +1,13 @@
 import requests
+
 #
-# files={'IMG_00000005.jpg',open('IMG_00000005.jpg','rb'),'image/png'}
-files={'img':('IMG_00000005.jpg',open('IMG_00000005.jpg','rb'),'image/png')}
-r = requests.request("POST",url='http://127.0.0.1:5001/face' , files=files, data={'device':1})
+# files={'2.jpg',open('2.jpg','rb'),'image/png'}
+files = {'img': ('2.jpg', open('2.jpg', 'rb'), 'image/png')}
+r = requests.request("POST", url='http://127.0.0.1:5002/register', files=files,
+                     data={'name': 'jiage', 'number': '2180702'})
 # r = requests.request("GET",url='http://127.0.0.1:5001/data/record?time=20190616_20190619&device=1')
 
 print(r.text)
-
 
 # from hyperlpr import *
 # import cv2
