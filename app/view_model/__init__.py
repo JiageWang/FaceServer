@@ -1,2 +1,2 @@
-from .staff import StaffViewModel
-from .record import RecordViewModel
+from .staff import StaffViewModel, StaffCollection
+from .record import RecordViewModel, RecordCollection
