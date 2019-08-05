@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from .models import db, Staff, Record
 
 
@@ -8,6 +9,7 @@ def create_app():
                 static_folder='../static')
     app.config.from_object('app.config')
     register_blueprint(app)
+    CORS(app, supports_credentials=True)
     db.init_app(app)
     db.create_all(app=app)
     return app

@@ -1,0 +1,69 @@
+body{
+    overflow: hidden;
+}
+.rongqi1{
+    width: 100%;
+}
+
+h1{
+    padding-top: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+h4{
+    text-align: center;
+}
+li{
+    font-size: small;
+}
+#li1{
+    font-size: large;
+    padding-left: 13%;
+    margin-bottom: 10px;
+}
+#li2{
+    font-size: large;
+    padding-left: 13%;
+    margin-bottom: 10px;
+}
+#li3{
+    font-size: large;
+    padding-left: 13%;
+    margin-bottom: 10px;
+}
+#li4{
+    font-size: large;
+    padding-left: 13%;
+    margin-bottom: 10px;
+}
+.headers{
+    margin-top: -15px;
+    background: #6b6b72;
+    text-align: center;
+}
+.mianban1{
+    margin-left: -15px;
+    margin-right: -15px;
+    height: 68rem;
+    overflow: auto;
+}
+/*.topbar{*/
+    /*margin-left: 180px;*/
+    /*margin-top: 50px;*/
+/*}*/
+span{
+    color: white;
+}
+.mianban2{
+    margin-left: -15px;
+    margin-right: -15px;
+    height: 69rem;
+    overflow: hidden;
+}
+.li1{
+    font-size: 20px;
+    margin-top: 20px;
+}
+.input-form{
+    margin-left: 300px;
+}

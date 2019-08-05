@@ -18,8 +18,8 @@ class FaceModel(object):
     def update_facebank(self):
         with create_app().app_context():
             embeddings = Embedding.query.all()
-            facebank = [np.array(json.loads(embedding.emd)) for embedding in embeddings]
-
+            # print(embeddings[0].emd)
+            facebank = [np.array(json.loads(embedding.emd.decode('utf-8'))) for embedding in embeddings]
             self.ids = [embedding.sid for embedding in embeddings]
             self.facebank = np.concatenate(facebank, 0) if len(facebank) > 0 else np.array([])
 

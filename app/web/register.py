@@ -17,14 +17,15 @@ def register():
                       name=form.name.data,
                       branch=form.branch.data,
                       duty=form.duty.data)
+
+        img = cv2.imdecode(np.fromstring(form.img.data.read(), np.uint8), cv2.IMREAD_COLOR)
+        emd = bytes(json.dumps(face_model.get_embedding(img).tolist()), encoding='utf-8')
         try:
             db.session.add(staff)
             db.session.commit()
         except Exception:
             db.session.rollback()
-            return make_response(jsonify({'msg': '写入数据库失败'}), 400)
-        img = cv2.imdecode(np.fromstring(form.img.data.read(), np.uint8), cv2.IMREAD_COLOR)
-        emd = bytes(json.dumps(face_model.get_embedding(img).tolist()), encoding='utf-8')
+            return make_response(jsonify({'msg': '写入数据库失败: add staff'}), 400)
         sid = Staff.query.filter_by(number=form.number.data).first().id
         embedding = Embedding(sid=sid, emd=emd)
         try:
@@ -32,7 +33,7 @@ def register():
             db.session.commit()
         except Exception:
             db.session.rollback()
-            return make_response(jsonify({'msg': '写入数据库失败'}), 400)
+            return make_response(jsonify({'msg': '写入数据库失败: add embedding'}), 400)
         face_model.update_facebank()
         return make_response(jsonify({'msg': '注册成功'}))
     else:

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>table</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <!--自定义样式-->
+    <link rel="stylesheet" href="../static/css/table1.css">
+</head>
+<body style="width: 100% ">
+<!--建立一个容器-->
+<div class=" rongqi1"  ng-controller="myCtrl">
+    <!--头部的选项栏-->
+    <div class="headers">
+        <h1>新凤鸣数据人脸识别系统</h1>
+        <ul class="nav nav-pills topbar">
+            <li  class="active" id="li1"><a href="#"><span>全部数据展示</span></a></li>
+            <li  id="li2"><a href="#"><span>按设备筛选</span></a></li>
+            <li  id="li3"><a href="#"><span>按时间筛选</span></a></li>
+            <li  id="li4"><a href="#"><span>人脸在线注册</span></a></li>
+        </ul>
+    </div>
+    <!--数据的显示栏-->
+    <div class="bodys">
+        <div class="container-fluid">
+            <!--定义一个行-->
+            <div class="panel panel-default mianban2 " ng-show="seens">
+                <div class="page-header container">
+                    <h2>人脸注册</h2>
+                </div>
+                <div class="panel-body container" >
+                    <div class="table-responsive input-form">
+                        <form action="http://10.199.172.228:8989/register" method="post" enctype="multipart/form-data">
+                            <ul>
+                                <li class="li1">图片名称：<input type="text" name="img" ></li>
+                                <li class="li1"><input type="file" name="img" ></li>
+                                <li class="li1">姓名：<input type="text" name="name" ></li>
+                                <li class="li1">工号：<input type="number" name="number" ></li>
+                                <li class="li1"><button type="submit" name="describle" class="btn btn-default">提交</button></li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default mianban1">
+                <div class="panel-heading">
+                    <h4 ng-show="seen">{{title}}<select ng-init="device = data_1[0]" ng-model = "device" ng-options="x for x in data_1" ng-click="filter()"></select></h4>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>device</th>
+                                <th>时间</th>
+                                <th>设备号</th>
+                                <th>名字</th>
+                                <th>工号</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="list in lists1">
+                                <td>{{list.device}}</td>
+                                <td>{{list.time}}</td>
+                                <td>{{list.id}}</td>
+                                <td>{{list.name}}</td>
+                                <td>{{list.number}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!--外部插件的引入-->
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/angular.min.js"></script>
+<!--自定义js代码-->
+<script src="../static/js/app1.js"></script>
+</body>
+
+</html>
