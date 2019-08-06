@@ -122,7 +122,7 @@ app.controller("myCtrl",['$scope','$http',function ($scope,$http) {
     $scope.seen = false;
     $scope.seens = false;
     window.onload = function () {
-        $http.get('http://10.199.172.228:8989/data/record').success(function (doc) {
+        $http.get('http://10.202.212.232:1255/data/record').success(function (doc) {
             //获取数据，并将数据赋值给lists1列表，然后绑定到前端的页面表格中
             console.log(doc);
             $scope.lists1 = doc;
@@ -137,7 +137,7 @@ app.controller("myCtrl",['$scope','$http',function ($scope,$http) {
         $scope.seens = false;
         $scope.seen = false;
         // console.log(title);
-        $http.get('http://10.199.172.228:8989/data/record').success(function (doc) {
+        $http.get('http://10.202.212.232:1255/data/record').success(function (doc) {
             $scope.lists1 =doc;
             //按钮1
         })
@@ -147,7 +147,7 @@ app.controller("myCtrl",['$scope','$http',function ($scope,$http) {
         $("#li1").attr('class', '');
         $("#li3").attr('class', '');
         $("#li4").attr('class', '');
-        $http.get('http://10.199.172.228:8989/data/record').success(function (doc) {
+        $http.get('http://10.202.212.232:1255/data/record').success(function (doc) {
             $scope.lists1 =doc;
             $scope.device ='';
             $scope.seens = false;
@@ -168,7 +168,7 @@ app.controller("myCtrl",['$scope','$http',function ($scope,$http) {
         $scope.seen = true;
         $scope.seens = false;
         $("#li1").attr('class', '');
-        $http.get('http://10.199.172.228:8989/data/record').success(function (doc) {
+        $http.get('http://10.202.212.232:1255/data/record').success(function (doc) {
             $scope.lists1 =doc;
             $scope.data_1 =data_2(time_data_1(doc));
             $scope.title = title;
@@ -187,7 +187,7 @@ app.controller("myCtrl",['$scope','$http',function ($scope,$http) {
         $("#li1").attr('class', '');
         $scope.seens = true;
         $scope.seen = false;
-        $http.get('http://10.199.172.228:8989/data/record').success(function (doc) {
+        $http.get('http://10.202.212.232:1255/data/record').success(function (doc) {
             $scope.lists1 =doc;
         })
     });

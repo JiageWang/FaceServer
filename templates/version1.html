@@ -30,7 +30,7 @@
                 </div>
                 <div class="panel-body container" >
                     <div class="table-responsive input-form">
-                        <form action="http://10.199.172.228:8989/register" method="post" enctype="multipart/form-data">
+                        <form action="http://10.202.212.232:1255/register" method="post" enctype="multipart/form-data">
                             <ul>
                                 <li class="li1">图片名称：<input type="text" name="img" ></li>
                                 <li class="li1"><input type="file" name="img" ></li>
@@ -50,20 +50,20 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>device</th>
-                                <th>时间</th>
+                                <th>序号</th>
                                 <th>设备号</th>
                                 <th>名字</th>
                                 <th>工号</th>
+                                <th>时间</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="list in lists1">
-                                <td>{{list.device}}</td>
-                                <td>{{list.time}}</td>
                                 <td>{{list.id}}</td>
+                                <td>{{list.device}}</td>
                                 <td>{{list.name}}</td>
                                 <td>{{list.number}}</td>
+                                <td>{{list.time}}</td>
                             </tr>
                         </tbody>
                     </table>
